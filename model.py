@@ -21,3 +21,10 @@ def load_data(data_dir):
 data_dir = './data'  # مسار مجلد البيانات
 dataset = load_data(data_dir)
 print(dataset.head())  # عرض أول 5 أسطر من البيانات
+
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import accuracy_score
+import joblib
