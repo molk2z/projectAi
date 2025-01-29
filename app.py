@@ -25,7 +25,7 @@ def predict():
         prediction = model.predict(news_vectorized)
         category = prediction[0]
         
-        return render_template('index.html', prediction_text=f'The news is classified as: {category}')
+        return render_template('index.html', prediction_text=f' {category} : نوع الخبر')
 
 if __name__ == "__main__":
     app.run(debug=True)
