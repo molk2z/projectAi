@@ -16,3 +16,8 @@ def load_data(data_dir):
                     labels.append(category)  # التصنيف
 
     return pd.DataFrame({'text': texts, 'label': labels})
+
+# استخدام الدالة لتحميل البيانات
+data_dir = './data'  # مسار مجلد البيانات
+dataset = load_data(data_dir)
+print(dataset.head())  # عرض أول 5 أسطر من البيانات
