@@ -40,3 +40,18 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 vectorizer = TfidfVectorizer(stop_words='english', max_features=5000)
 X_train_tfidf = vectorizer.fit_transform(X_train)
 X_test_tfidf = vectorizer.transform(X_test)
+
+
+
+# تدريب النموذج
+model = MultinomialNB()
+model.fit(X_train_tfidf, y_train)
+
+# اختبار النموذج
+predictions = model.predict(X_test_tfidf)
+accuracy = accuracy_score(y_test, predictions)
+print(f"Model Accuracy: {accuracy:.2f}")
+
+# حفظ النموذج والمتجه
+joblib.dump(model, 'news_model.pkl')
+joblib.dump(vectorizer, 'vectorizer.pkl')
